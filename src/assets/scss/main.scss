@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,500,700');
+//General
+$text: #fff;
+$background: #19253f;
+$background2: #222831;
+$n-author: #362121;
+$b-gradient: linear-gradient(150.36692973064487deg, rgba(34, 40, 49,1) -0.7697368421052602%,rgba(26, 37, 60,1) 70.17763157894737%,rgba(25, 37, 63,1) 87.91447368421053%);
+$navbarsize: 20px;
+
+//Resources
+$links: #362121;
+
+//Titles
+$titleName: #362121;
+$title: #362121;
+$p-title: #362121;
+
+//3D card-effects
+$c-ground1: #362121;
+$c-ground2: #362121;
+$c-ground3: #362121;
+
+//Fonts
+$fontW: 300;
+@mixin gradient-flow {
+  background: $b-gradient no-repeat;
+}
+@mixin normalTxt{
+  color: $text;
+  text-decoration: none;
+  text-emphasis: none;
+}
+@mixin italic {
+  font-weight: $fontW;
+  font-style: italic;
+}
+@mixin font-set{
+  font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+//MediaQueries
+@mixin MediaSize($size) {
+  @if $size == small {
+    @media (max-width: 599px) { @content;  }
+  } @else if $size == semid {
+    @media only screen and (min-width: 600px) { @content;
+    }
+  } @else if $size == mid {
+    @media (min-width: 900px) { @content; }
+  } @else if $size == midbig {
+    @media (min-width: 1200px) { @content; }
+  } @else if $size == big {
+    @media (min-width: 1800px) { @content; }
+  }
+}
+//CssGrid Organizations
+@mixin root{
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  @include MediaSize(small){
+    //grid-template-columns: 2fr 1fr 2fr;
+    grid-auto-rows: fit-content(300px);
+  }
+}
+//ProjectStructure
+@mixin Squares3nRow{
+  display: inline-grid;
+  @include MediaSize(small){
+    grid-template-columns: 1fr;
+  }
+  @include  MediaSize(semid){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include MediaSize(mid){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+//Defaults prototypes
+@mixin defInputs{
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+.hide-effect:hover{
+  color: rgba($color: #000000, $alpha: 0.0);//DISAPPEARED
+}
+.figure{
+  position:absolute;
+  right:80%;
+  bottom:84%;
+  height:0.3rem;
+  width:0.3rem;
+  opacity:0.8;
+  border-radius:50%;
+  z-index:0;
+  background-color:#F8E71C;
+}
