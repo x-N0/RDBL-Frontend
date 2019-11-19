@@ -1,39 +1,28 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>
-          <router-link to="/">Home</router-link>
-        </v-btn>
-        <v-btn flat>
-          <router-link to="/about">About</router-link>
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-
+    <Toolbar />
     <v-content>
-      <router-view />
+      <v-container fluid>
+        <router-view />
+      </v-container>
     </v-content>
+
+    <v-footer app color="blue-grey" class="white--text">
+      <span>Vuetify</span>
+      <v-spacer></v-spacer>
+      <span>&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld";
+  import Toolbar from "./components/Toolbar";
 
-export default {
+  export default {
   name: "App",
-
   components: {
-    //HelloWorld
+    Toolbar
   },
-
-  data: () => ({
-    //
-  })
+  data: () => ({})
 };
 </script>
