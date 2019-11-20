@@ -1,5 +1,18 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>TESTING AREA:</h1>
+    <v-spacer></v-spacer>
+    <ImgSlider></ImgSlider>
   </div>
 </template>
+
+<script>
+  import ImgSlider from "../components/ImgSlider";
+
+  export default {
+  name: "about",
+  components: {
+    ImgSlider
+  }
+};
+</script>
