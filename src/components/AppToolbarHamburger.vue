@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "Hamburger",
+  name: "AppToolbarHamburger",
   props: {
     drawer: null
   },
