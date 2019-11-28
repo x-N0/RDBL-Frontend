@@ -13,10 +13,10 @@
 </template>
 
 <script>
-  import Toolbar from "./components/AppToolbar";
-  import AppFooter from "./components/AppFooter";
+import Toolbar from "./components/AppToolbar";
+import AppFooter from "./components/AppFooter";
 
-  export default {
+export default {
   name: "App",
   components: {
     Toolbar,

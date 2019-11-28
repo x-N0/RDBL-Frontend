@@ -22,6 +22,20 @@ $c-ground3: #362121;
 
 //Fonts
 $fontW: 300;
+$fontSize: 16px;
+
+@mixin TextCapitalizer{
+  text-transform: none;
+}
+@mixin TextCutter {
+  @include TextCapitalizer;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
 @mixin gradient-flow {
   background: $b-gradient no-repeat;
 }
@@ -54,6 +68,8 @@ $fontW: 300;
     @media (min-width: 1800px) { @content; }
   }
 }
+
+
 //CssGrid Organizations
 @mixin root{
   display: grid;
@@ -104,4 +120,9 @@ $fontW: 300;
   border-radius:50%;
   z-index:0;
   background-color:#F8E71C;
+}
+
+//Navbar 2 States
+.transparent, .transp{
+  background-color: rgba(1,1,1,0);
 }

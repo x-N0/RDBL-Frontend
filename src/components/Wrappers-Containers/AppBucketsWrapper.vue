@@ -18,11 +18,13 @@
 </template>
 
 <script>
-    import BucketCard from "../BucketCard";
+import BucketCard from "../BucketCard";
+//import _ from "lodash.throttle";
+import { HTTP } from "../../http-common.js";
 
-    export default {
+export default {
   name: "AppBucketsWrapper",
-  components: { BucketCard},
+  components: { BucketCard },
   data() {
     return {
       bucketLists: [
@@ -71,8 +73,22 @@
           Description:
             "This is a looooooooooooooooooooooooooooooooooooooooooooooooooooong description."
         }
-      ]
+      ],
+      errors: []
     };
+  },
+  mounted() {
+    HTTP.get("/bucketlists")
+      .then(response => {
+        this.bucketLists = response.data;
+      })
+      .catch(e => {
+        this.$store.commit(
+          "setAlert",
+          { msg: e, type: "error" },
+          { root: true }
+        );
+      });
   }
 };
 </script>
