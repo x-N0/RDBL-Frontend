@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <AppToolbarHamburger v-bind:drawer="this.drawer"></AppToolbarHamburger>
-    <v-app-bar id="toolbar" class="transp" app>
+    <v-app-bar id="toolbar" class="transp pb-10" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title
         ><a href="/" style="text-decoration: none; color: #000000;"
@@ -27,13 +27,14 @@
         >
       </v-toolbar-items>
     </v-app-bar>
+    <AppAlert></AppAlert>
   </div>
 </template>
 
 <script>
-    import AppToolbarHamburger from "./AppToolbarHamburger.vue";
+import AppToolbarHamburger from "./AppToolbarHamburger.vue";
 
-    window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function() {
   let x = document.documentElement.scrollTop || document.body.scrollTop;
   const toolbar = document.getElementById("toolbar");
   if (x >= 75) {
@@ -44,7 +45,10 @@
 });
 export default {
   name: "AppToolbar",
-  components: { AppToolbarHamburger },
+  components: {
+    AppToolbarHamburger,
+    AppAlert: () => import("./AppAlert") //LAzyLoadComp.
+  },
   data() {
     return {
       drawerRight: null,
